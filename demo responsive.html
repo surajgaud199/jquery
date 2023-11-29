@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        section {
+            width: 100%;
+        }
+
+        .container {
+            width: 1250px;
+            margin: 0 auto;
+        }
+
+        header {
+            width: 100%;
+            /* margin: 10px 0; */
+            background-color: rgb(178, 135, 82);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .link li {
+            list-style: none;
+            display: inline-block;
+            padding: 20px 30px;
+        }
+
+        a {
+            text-decoration: none;
+            font-size: 19px;
+            color: black;
+            font-weight: 600;
+            padding: 20px 30px;
+        }
+
+        .logo {
+            box-shadow: 0px 0px 5px black;
+            padding: 7px 30px;
+            border-radius: 0px 10px;
+        }
+
+        #slide li {
+            list-style: none;
+            padding: 10px 0;
+        }
+
+        #slide {
+            position: absolute;
+            top: 64px;
+            right: 75px;
+            box-shadow: 0px 0px 5px black;
+            padding: 10px 0;
+            background-color: rgb(178, 135, 82);
+            display: none;
+        }
+
+        #slide a {
+            color: white;
+
+        }
+
+        #btn {
+            font-size: 22px;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <header>
+            <div class="container">
+                <nav>
+                    <div class="logo">
+                        <h1>
+                            logo
+                        </h1>
+                    </div>
+                    <div class="link">
+                        <ul>
+                            <li><a href="#">home</a></li>
+                            <li><a href="#">main</a></li>
+                            <li><a href="#">contact</a></li>
+                            <li><a href="#">images</a></li>
+                            <li><a href="#">video</a></li>
+                        </ul>
+                    </div>
+                    <div class="icon">
+                        <button id="btn">slide dowan</button>
+                        <div id="slide">
+                            <li><a href="#">home</a></li>
+                            <li><a href="#">main</a></li>
+                            <li><a href="#">contact</a></li>
+                            <li><a href="#">images</a></li>
+                            <li><a href="#">video</a></li>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </header>
+    </section>
+    <script>
+        $(document).ready(function () {
+            $("#btn").click(function () {
+                $("#slide").toggleClass("slid")
+                let slide = $("#slide").hasClass("slid")
+                if (slide == true) {
+                    $("#slide").slideDown(2000)
+                    $("#btn").html("stop")
+                } else {
+                    $("#slide").stop(1000)
+                    $("#btn").html("slide down")
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>
